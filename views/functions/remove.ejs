@@ -1,0 +1,30 @@
+<%- include("../partials/header"); %>
+
+<script src="https://semantic-ui.com/javascript/library/tablesort.js"></script>
+<div class="main ui container">
+        <div class="ui middle aligned center aligned grid">
+                <table class="ui sortable unstackable celled table">
+                    <thead>
+                        <tr>
+                            <th>מחק</th>
+                            <th>מוצר</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% products.forEach(function(product){ %>
+                            <tr>
+                                <td data-label="מחק"> <form action="/functions/watchWearhouse/delete/<%=product._id%>?_method=DELETE" method="post"><button class="removeProduct"> <i class="minus icon"></i></button></form></td>
+                                <td data-label="מוצר"><%=product.name%></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+        </div>
+
+    </div>
+    <script>
+    $('table').tablesort() 
+    </script>
+
+<%- include("../partials/footer"); %>

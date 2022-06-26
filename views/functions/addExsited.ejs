@@ -1,0 +1,38 @@
+<%- include("../partials/header"); %>
+
+<div class="ui container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui icon header">
+                    <i class="plus icon"></i>                
+                    <div class="content">עדכן מוצר קיים</div>
+                </h2>
+                <h4>עדכן את: <%=product.name%></h4>
+                <form action="/functions/addExsited?_method=PUT" method="POST">
+
+                    <input type="hidden" name="product[name]" value="<%=product.name%>">
+                    <div class="ui fluid right labeled input">
+                        <label class="ui label"><img src="https://image.flaticon.com/icons/svg/3330/3330855.svg" alt=""></label>                    
+                        <input type="number" step="any" id="quantity" name="product[quantity]" placeholder="כמות" value="<%=product.quantity%>">
+                    </div>
+
+                    <div class="ui fluid right labeled input">
+                        <label class="ui label"><img src="https://image.flaticon.com/icons/svg/33/33129.svg" alt=""></label>                    
+                        <input type="number" step="any" id="price" name="product[price]" placeholder="מחיר" value="<%=product.price%>">
+                    </div>
+
+                    <input type="hidden" id="barcode" name="product[barcode_id]" placeholder="ברקוד" value="<%= product.barcode_id %>">
+
+    
+                    <div class="ui fluid large submit button">
+                        <input type="submit" value="הוסף מוצר" style="width: 100%; height: 150%; text-decoration: none; background-color: transparent; border: none; color: white;">
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    
+    </div>
+    
+
+<%- include("../partials/footer"); %>

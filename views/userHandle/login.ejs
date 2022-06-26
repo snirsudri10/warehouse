@@ -1,0 +1,19 @@
+<%- include("../partials/header"); %>
+
+
+<div class="ui container">
+
+    <h1>התחבר</h1>
+    <form action="login" method="POST" class="ui form">
+            <div class="field required">
+              <label>שם משתמש</label>
+              <input type="text" name="username" placeholder="שם משתמש">
+            </div>
+            <div class="field required">
+              <label>סיסמה</label>
+              <input type="password" name="password" placeholder="סיסמה">
+            </div>
+            <button class="ui button" type="submit">התחבר</button>
+          </form>
+</div>
+<%- include("../partials/footer"); %>

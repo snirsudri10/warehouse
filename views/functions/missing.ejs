@@ -1,0 +1,26 @@
+<%- include("../partials/header"); %>
+<div class="ui container">
+    <div class="ui middle aligned center aligned grid">
+        <h1>המוצרים שחסרים</h1>
+        <table class="ui unstackable celled table">
+            <thead>
+                <tr>
+                    <th>כמות</th>
+                    <th>שם</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% missing.forEach(element =>{ %>
+                    <tr>
+                        <td data-label="כמות"><%= element.quantity %></td>
+                        <td data-label="שם"><%= element.name %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+<%- include("../partials/footer"); %>

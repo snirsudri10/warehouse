@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Storage App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" media="screen"  href="/css/app.css">
+</head>
+<body>
+    <div class="ui menu">
+        <div class="ui container">
+            <div class="header item"><a href="/" style="text-decoration: none; color: black;">המחסן של 116</a> &nbsp;<img style="width: 24px;" src="https://image.flaticon.com/icons/svg/702/702455.svg" alt=""></div>
+
+            <div class="right menu">
+                <% if( !currentUser){ %>
+                <a href="../userHandle/login" class="item">היכנס</a>
+                <% }else{ %>
+                    <a href="../shoppingCart/" class="item">עגלת קניות</a>
+                    <a href="../userHandle/logout" class="item">יציאה</a>
+                <% } %>   
+            </div>
+            
+        </div>
+    </div>
+
+    <!--הודעות למשתמש-->
+    <div class="ui container">
+        <% if((error && error.length > 0) || (success && success.length>0)){ %>
+            <%if(success && success.length>0){ %>
+                <div class="ui success message">
+            <%} if(error && error.length > 0){ %>
+                <div class="ui negative message">
+            <% } %>
+                <i class="close icon"></i>
+                <div class="header">
+                <% if(error && error.length > 0){ %>
+                    שגיאה
+                <%} if(success && success.length>0){ %>
+                    הצלחה
+                <% } %>
+                </div>
+                <% if(error && error.length > 0){ %>
+                    <p><%=error%></p>
+                <%} if(success && success.length>0){ %>
+                    <p><%=success%></p>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+
+    <script>
+    $('.message .close').on('click',function(){
+        $(this).parent().fadeOut();
+    });
+    </script>
+
+
+
+

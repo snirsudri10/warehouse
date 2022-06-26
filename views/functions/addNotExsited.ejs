@@ -1,0 +1,42 @@
+<%- include("../partials/header"); %>
+
+<div class="ui container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui icon header">
+                    <i class="plus icon"></i>                
+                    <div class="content">הוסף מוצר לא קיים</div>
+                </h2>
+                <form action="/functions/addNotExsited" method="post">
+                    <div class="ui fluid right labeled input">
+                        <label class="ui label"><img src="https://image.flaticon.com/icons/svg/1253/1253360.svg" alt=""></label>                    
+                        <input type="text" id="name" name="product[name]" placeholder="שם מוצר">
+                    </div>
+
+                    <div class="ui fluid right labeled input">
+                        <label class="ui label"><img src="https://image.flaticon.com/icons/svg/3330/3330855.svg" alt=""></label>                    
+                        <input type="number" step="any" id="quantity" name="product[quantity]" placeholder="כמות">
+                    </div>
+
+                    <div class="ui fluid right labeled input">
+                        <label class="ui label"><img src="https://image.flaticon.com/icons/svg/33/33129.svg" alt=""></label>                    
+                        <input type="number" step="any" id="price" name="product[price]" placeholder="מחיר">
+                    </div>
+
+                    <div class="ui fluid right labeled input">
+                        <label class="ui label"><img src="https://image.flaticon.com/icons/svg/860/860047.svg" alt=""></label>                    
+                        <input type="text" id="barcode" name="product[barcode_id]" placeholder="ברקוד" value="<%= barcode_id.code %>">
+                    </div>
+    
+                    <div class="ui fluid large submit button">
+                        <input type="submit" value="הוסף מוצר" style="width: 100%; height: 150%; text-decoration: none; background-color: transparent; border: none; color: white;">
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    
+    </div>
+    
+
+<%- include("../partials/footer"); %>

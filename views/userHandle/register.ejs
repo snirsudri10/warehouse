@@ -1,0 +1,23 @@
+<%- include("../partials/header"); %>
+
+
+<div class="ui container">
+
+        <h1>הירשמות</h1>
+        <form action="register" method="POST" class="ui form">
+                <div class="field required">
+                  <label>שם משתמש</label>
+                  <input type="text" name="username" placeholder="שם משתמש">
+                </div>
+                <div class="field required">
+                  <label>סיסמה</label>
+                  <input type="password" name="password" placeholder="סיסמה">
+                </div>
+                <div class="field required">
+                    <label>?מנהל</label>
+                    <input type="checkbox" name="manager" placeholder="מנהל">
+                <div>
+                <button class="ui button" type="submit">הירשם</button>
+        </form>
+</div>
+<%- include("../partials/footer"); %>

@@ -1,0 +1,34 @@
+<%- include("../partials/header"); %>
+
+<div class="ui container">
+    <div class="ui middle aligned center aligned grid">
+        <h1>המוצרים שנלקחו מהמחסן</h1>
+            <table class="ui unstackable celled table">
+                <thead>
+                    <tr>
+                        <th>מחק</th>
+                        <th>תאריך</th>
+                        <th>כמות</th>
+                        <th>מוצר</th>
+                        <th>שם</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                  <% logs.forEach(function(log){ %>
+                    <tr>
+                        <td><form action="/functions/history/delete/<%=log._id%>?_method=DELETE" method="post"><button class="removeProduct"> <i class="minus icon"></i></button></form></td>
+                        <td data-label="תאריך"><%=log.date%></td>
+                        <td data-label="כמות"><%=log.quantity%></td>
+                        <td data-label="מוצר"><%=log.productName%></td>
+                        <td data-label="שם"><%=log.username%></td>
+                    </tr>
+                  <%})%>
+                </tbody>
+            </table>
+    </div>
+</div>
+
+
+<%- include("../partials/footer"); %>

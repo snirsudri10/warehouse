@@ -1,0 +1,48 @@
+<%- include("../partials/header"); %>
+<script src="https://semantic-ui.com/javascript/library/tablesort.js"></script>
+<div class="main ui container">
+        <div class="ui middle aligned center aligned grid">
+            <h1>המשתמשים הקיימים</h1>
+                <table class="ui sortable unstackable celled table">
+                    <thead>
+                        <tr>
+                            <th>מחק משתמש</th>
+                            <th>ערוך תקציב</th>    
+                            <th>מנהל</th>
+                            <th>תקציב</th>
+                            <th>שם משתמש</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach(function(user){ %>
+                            <tr>
+                                <td data-label="מחק משתמש">
+                                    <form action="/userHandle/delete/<%=user._id%>?_method=DELETE" method="POST">
+                                        <button class="tiny ui button">מחק משתמש</button>
+                                    </form>
+                                </td>
+                                <td data-label="ערוך תקציב">
+                                        <button class="tiny ui button"><a style="color: black" href="/userHandle/edit/<%=user._id%>"> ערוך תקציב</a></button>
+                                </td>
+                                <%if(user.manager){%>
+                                    <td class="center positive" data-label="מנהל"><i class="check icon"></i> <span style="display: none">a</span> </td>
+                                <%}else{%>
+                                    <td data-label="מנהל"><i class="x icon"></i> <span style="display: none ">b</span> </td>
+                                <%}%>
+                                <td data-label="תקציב"><%=user.money%></td>
+                                <td data-label="שם משתמש"><%=user.username%></td>
+
+
+                            </tr>
+                        <%})%>
+                    </tbody>
+                </table>
+        </div>
+
+    </div>
+    <script>
+    $('table').tablesort() 
+    </script>
+
+<%- include("../partials/footer"); %>

@@ -1,0 +1,52 @@
+<%- include("../partials/header"); %>
+
+
+<script src="https://semantic-ui.com/javascript/library/tablesort.js"></script>
+
+<div class="ui container">
+    <div class="ui middle aligned center aligned grid">
+        <h1>המוצרים במחסן</h1>
+            <table class="ui sortable unstackable celled table">
+                <thead>
+                    <tr>
+                        <th>הוסף לעגלה</th>
+                        <th>ברקוד</th>
+                        <th>מחיר</th>
+                        <th>כמות</th>
+                        <th class="sorted ascending">שם</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% products.forEach(function(product){ %>
+                    <tr>
+                        <td data-label="הוסף לעגלה">
+                            <form action="/shoppingCart/addToCart/<%=product.id%>/" method="post">
+                                <input style="width: 25%;" type="number" name="qunatity" id="" value="1" max="<%=product.quantity%>" min="0">
+                                <br>
+                                <button class="shoppingCartAdd"> <i class="cart plus icon"></i></button>
+                            </form>
+                        </td>
+                        <td data-label="ברקוד"><%=product.barcode_id%></td>
+                        <td data-label="מחיר"><%=product.price%></td>
+                        <% if(product.quantity <= 5){ %>
+                            <td data-label="כמות" style="background-color: rgb(202, 22, 22)"> <%=product.quantity%></td>
+                        <% }else{ %>
+                            <td data-label="כמות"><%=product.quantity%></td>
+                        <% } %>
+                            <td data-label="שם"><%=product.name%></td>
+                    </tr>
+                  <%})%>
+                </tbody>
+            </table>
+            
+            <% if(currentUser.manager){ %>
+                <a href="/functions/watchWearhouse/missing"><button class="ui button">?מה חסר</button> </a>
+            <% } %>
+    </div>
+
+</div>
+<script>
+    $('table').tablesort();
+</script>
+
+<%- include("../partials/footer"); %>

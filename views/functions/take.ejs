@@ -1,0 +1,41 @@
+<%- include("../partials/header"); %>
+
+<script src="/js/quagga.min.js" type="text/javascript"></script>
+<script src="/js/quaggaUse.js"></script>
+
+<div class="ui container">
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui icon header">
+                <i class="minus icon"></i>                
+                <div class="content">קח מוצר</div>
+            </h2>
+            <form action="/functions/take" method="post">
+                
+                <div class="ui fluid right labeled input">
+                    <label for="amount" class="ui label"><img src="https://image.flaticon.com/icons/svg/860/860047.svg" alt=""></label>                    
+                    <input type="text" autofocus id="barcode" name="product[barcode_id]" required="true" placeholder="ברקוד" >
+                    <button type="button" onclick="init()">החל סריקה</button>
+                    <button type="button" onclick="stopScan()">הפסק סריקה</button>
+                </div>
+
+                <div class="ui fluid large submit button">
+                    <input type="submit" value="קח מוצר" style="width: 100%; height: 100%; text-decoration: none; background-color: transparent; border: none; color: white;">
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<script>
+
+</script>
+
+
+
+<%- include("../partials/footer"); %>

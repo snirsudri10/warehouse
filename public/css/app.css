@@ -1,0 +1,80 @@
+#function-Button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+.camera .drawingBuffer{
+  
+  width: 0%;
+  height: 0%;
+}
+
+.listItem{
+  text-align: center;
+}
+
+#camera > video{
+  object-fit: cover;
+  width: 30em;
+  height: 20em;
+  display: block;
+  margin: auto;
+  padding-top: 10px;
+  
+}
+
+#delete-user{
+  display: inline;
+}
+
+
+.tr-wearHouse{
+  text-align: center;
+}
+
+.shoppingCartAdd{
+  background: none;
+  border: none;
+}
+
+.removeProduct{
+  background: none;
+  border: none;
+}
+
+tr{
+  text-align: center;
+}
+
+
+.headingShoppingCart{
+  text-align: center;
+}
+
+.headingShoppingCart .head{
+  margin: 8px 0px 8px 0px
+}
+
+.headingShoppingCart .budget{
+  margin: 8px 0px 8px 0px
+}
+
+.summary{
+  width: 100%;
+  display: inline;
+  text-align: center;
+}
